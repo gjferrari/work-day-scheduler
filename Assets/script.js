@@ -5,7 +5,9 @@ $(document).ready(function () {
   var notesEl = $(".notes"); //variable for any notes written in text area (hopefully)
   var currentDay = $("#currentDay");
 
-  currentDay = DateTime.now().text;
+  var today = moment();
+
+  currentDay.text(today.format("MMMM Do,YYYY, hh:mm:ss"));
 
   saveBtnEl.on("click", function () {
     var dayNotes = $(this).siblings(".notes").val();
