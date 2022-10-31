@@ -16,8 +16,14 @@ $(document).ready(function () {
     var currentHour = today.hour();
     console.log(currentHour);
 
-    var calHour = $(".hour");
-    console.log(calHour);
+    // var calHour = $(".hour").text;
+    // console.log(calHour);
+
+    $(".hour").each(function () {
+      var calHour = $(".hour").text();
+      console.log(calHour);
+      //how do i get the text string from the html
+    });
   }
 
   // CLICK EVENT
