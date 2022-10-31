@@ -6,7 +6,11 @@ $(document).ready(function () {
 
   //create a click event to save notes into local storage
   // var dayNotes = localStorage.getItem("daynotes");
+  //   renderNotes();
 
+  //   function renderNotes() {
+  //     JSON.parse(localStorage.getItem("daynotes"));
+  //   }
   saveBtnEl.on("click", function () {
     var dayNotes = $(this).siblings(".notes").val();
     console.log(dayNotes);
@@ -16,12 +20,9 @@ $(document).ready(function () {
     //   localStorage.setItem("daynotes", dayNotes);
     // }
     localStorage.setItem("daynotes", JSON.stringify(dayNotes));
-    renderNotes();
-
-    function renderNotes() {
-      JSON.parse(localStorage.getItem("daynotes"));
-    }
   });
+
+  $(".notes").val(localStorage.getItem("daynotes", JSON.parse(dayNotes)));
 });
 
 // https://remysharp.com/2007/04/12/jquerys-this-demystified/
