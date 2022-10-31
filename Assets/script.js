@@ -3,37 +3,23 @@ $(document).ready(function () {
   //  HOOKS INTO THE DOM
   var saveBtnEl = $(".saveBtn");
   var notesEl = $(".notes"); //variable for any notes written in text area (hopefully)
+  var currentDay = $("#currentDay");
 
-  // STATE VARIABLES
-  var savedNotes = [];
+  currentDay = DateTime.now().text;
 
-  function init() {
-    var storedNotes = JSON.parse(localStorage.getItem("daynotes"));
-    if (storedNotes !== null) {
-      savedNotes = storedNotes;
-    }
-    renderTodos();
-  }
-
-  //create a click event to save notes into local storage
-  // var dayNotes = localStorage.getItem("daynotes");
-  //   renderNotes();
-
-  //   function renderNotes() {
-  //     JSON.parse(localStorage.getItem("daynotes"));
-  //   }
   saveBtnEl.on("click", function () {
     var dayNotes = $(this).siblings(".notes").val();
+
     console.log(dayNotes);
 
     // function showNote() {
     //   notesEl.textContent = dayNotes;
     //   localStorage.setItem("daynotes", dayNotes);
     // }
-    localStorage.setItem("daynotes", JSON.stringify(dayNotes));
+    localStorage.setItem("daynotes", dayNotes);
   });
 
-  $(".hourblock").val(localStorage.getItem("daynotes"));
+  $(notesEl).val(localStorage.getItem("daynotes")); //currently saves to all blocks but success!
 });
 
 // https://remysharp.com/2007/04/12/jquerys-this-demystified/
