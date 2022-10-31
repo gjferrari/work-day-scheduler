@@ -4,6 +4,17 @@ $(document).ready(function () {
   var saveBtnEl = $(".saveBtn");
   var notesEl = $(".notes"); //variable for any notes written in text area (hopefully)
 
+  // STATE VARIABLES
+  var savedNotes = [];
+
+  function init() {
+    var storedNotes = JSON.parse(localStorage.getItem("daynotes"));
+    if (storedNotes !== null) {
+      savedNotes = storedNotes;
+    }
+    renderTodos();
+  }
+
   //create a click event to save notes into local storage
   // var dayNotes = localStorage.getItem("daynotes");
   //   renderNotes();
@@ -22,7 +33,7 @@ $(document).ready(function () {
     localStorage.setItem("daynotes", JSON.stringify(dayNotes));
   });
 
-  $(".notes").val(localStorage.getItem("daynotes", JSON.parse(dayNotes)));
+  $(".hourblock").val(localStorage.getItem("daynotes"));
 });
 
 // https://remysharp.com/2007/04/12/jquerys-this-demystified/
