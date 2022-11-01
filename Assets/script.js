@@ -36,13 +36,18 @@ $(document).ready(function () {
   }
 
   // CLICK EVENTS FOR EACH BUTTON
-  var clickInput = JSON.parse(localStorage.getItem("message"));
+//   var clickInput = JSON.parse(localStorage.getItem("message"));
   saveBtnEl.on("click", function () {
     var dayNotes = $(this).siblings(".notes").val();
     var timeNotes = $(this).parent().attr("id");
 
-    var clickedInput = dayNotes.add(timeNotes);
-    localStorage.setItem("message", JSON.stringify(clickInput));
+    localStorage.setItem(timeNotes, dayNotes);
+
+    // clickInput.push({
+    //   notes: dayNotes,
+    //   time: timeNotes,
+    // });
+    // localStorage.setItem("message", JSON.stringify(clickInput));
 
     // localStorage.setItem(timeNotes, dayNotes);
     // localStorage.setItem("timeNotes", timeNotes);
@@ -67,6 +72,16 @@ $(document).ready(function () {
 
     // localStorage.setItem("daynotes", stringyfiedData);
   });
+  $("#text8").val(localStorage.getItem("8hour"));
+  $("#text9").val(localStorage.getItem("9hour"));
+  $("#text10").val(localStorage.getItem("10hour"));
+  $("#text11").val(localStorage.getItem("11hour"));
+  $("#text12").val(localStorage.getItem("12hour"));
+  $("#text13").val(localStorage.getItem("13hour"));
+  $("#text14").val(localStorage.getItem("14hour"));
+  $("#text15").val(localStorage.getItem("15hour"));
+  $("#text16").val(localStorage.getItem("16hour"));
+  $("#text17").val(localStorage.getItem("17hour"));
 
   //   $("#text8").val(localStorage.getItem("daynotes")); //currently saves to all blocks but success!
 
