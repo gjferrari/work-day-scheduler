@@ -15,11 +15,11 @@ This application creates a simple calendar application that allows a user to sav
 
 - The following animation shows the web application's functionality:
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+![A user clicks on slots on the color-coded calendar and edits the events.](assets/images/05-third-party-apis-homework-demo.gif)
 
 - The following image shows the web application's appearance:
 
-![The Work Day Scheduler displays the date and time, followed by time blocks.](assets/Mockup.png)
+![The Work Day Scheduler displays the date and time, followed by time blocks.](assets/images/Mockup.png)
 
 ## Liscense
 
