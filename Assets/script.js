@@ -10,8 +10,6 @@ $(document).ready(function () {
   currentDay.text(today.format("MMMM Do,YYYY, hh:mm"));
 
   //   TIME FUNCTION
-  //   VARIABLES NEEDED: var for hour
-
   function timeofDay() {
     var currentHour = today.hour();
     console.log("currentHour", currentHour);
@@ -37,20 +35,30 @@ $(document).ready(function () {
     });
   }
 
-  // CLICK EVENT
+  // CLICK EVENTS FOR EACH BUTTON
   saveBtnEl.on("click", function () {
-    var dayNotes = $(this).siblings("#text8").val();
+    var oldData = localStorage.getItem("daynotes");
+    var parsedOldData = JSON.parse(oldData);
+    // var dayNotes = $(this).siblings("#text8").val();
+    var clickedDayNote = $(this).siblings()[0].innerHTML;
+    var dayNotes = $(".notes");
+    //HOW DO I WRITE A FOR LOOP FOR THIS!!!
+    // console.log(clickedDayNote);
+    // console.log(dayNotes[0]);
 
-    console.log(dayNotes);
+    // console.log($(dayNotes[0]).val());
+    parsedOldData[clickedDayNote] = dayNotes[0];
+    // var data = {
+    //   "8:00": $(dayNotes[0]).val(),
+    // };
 
-    // function showNote() {
-    //   notesEl.textContent = dayNotes;
-    //   localStorage.setItem("daynotes", dayNotes);
-    // }
-    localStorage.setItem("daynotes", dayNotes);
+    var stringyfiedData = JSON.stringify([parsedOldData]);
+    console.log(stringyfiedData);
+
+    localStorage.setItem("daynotes", stringyfiedData);
   });
 
-  $("#text8").val(localStorage.getItem("daynotes")); //currently saves to all blocks but success!
+  //   $("#text8").val(localStorage.getItem("daynotes")); //currently saves to all blocks but success!
 
   timeofDay(); //reruns the time day function
 });
