@@ -14,21 +14,32 @@ $(document).ready(function () {
 
   function timeofDay() {
     var currentHour = today.hour();
-    console.log(currentHour);
+    console.log("currentHour", currentHour);
 
-    // var calHour = $(".hour").text;
-    // console.log(calHour);
+    $(".hourblock").each(function () {
+      var pageHour = parseInt($(this).attr("id").split("h")[0]);
 
-    $(".hour").each(function () {
-      var calHour = $(".hour").text();
-      console.log(calHour);
+      console.log("pageHour", pageHour);
       //how do i get the text string from the html
+
+      //ONCE I GET THE PAGEHOUR VAR CORRECT THIS SHOULD WORK
+      if (pageHour < currentHour) {
+        $(this).addClass("past");
+      } else if (pageHour === currentHour) {
+        $(this).addClass("present");
+        $(this).removeClass("past");
+        $(this).removeClass("future");
+      } else {
+        $(this).addClass("future");
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+      }
     });
   }
 
   // CLICK EVENT
   saveBtnEl.on("click", function () {
-    var dayNotes = $(this).siblings(".notes").val();
+    var dayNotes = $(this).siblings("#text8").val();
 
     console.log(dayNotes);
 
@@ -39,7 +50,7 @@ $(document).ready(function () {
     localStorage.setItem("daynotes", dayNotes);
   });
 
-  $(notesEl).val(localStorage.getItem("daynotes")); //currently saves to all blocks but success!
+  $("#text8").val(localStorage.getItem("daynotes")); //currently saves to all blocks but success!
 
   timeofDay(); //reruns the time day function
 });
