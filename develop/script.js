@@ -43,16 +43,22 @@ $(document).ready(function () {
 
     localStorage.setItem(timeNotes, dayNotes);
   });
-  $("#text8").val(localStorage.getItem("8hour"));
-  $("#text9").val(localStorage.getItem("9hour"));
-  $("#text10").val(localStorage.getItem("10hour"));
-  $("#text11").val(localStorage.getItem("11hour"));
-  $("#text12").val(localStorage.getItem("12hour"));
-  $("#text13").val(localStorage.getItem("13hour"));
-  $("#text14").val(localStorage.getItem("14hour"));
-  $("#text15").val(localStorage.getItem("15hour"));
-  $("#text16").val(localStorage.getItem("16hour"));
-  $("#text17").val(localStorage.getItem("17hour"));
+
+  for (let i = 8; i <= 17; i++) {
+    $("#text" + i).val(localStorage.getItem(i + "hour"));
+    console.log(i);
+  }
+
+  // $("#text8").val(localStorage.getItem("8hour"));
+  // $("#text9").val(localStorage.getItem("9hour"));
+  // $("#text10").val(localStorage.getItem("10hour"));
+  // $("#text11").val(localStorage.getItem("11hour"));
+  // $("#text12").val(localStorage.getItem("12hour"));
+  // $("#text13").val(localStorage.getItem("13hour"));
+  // $("#text14").val(localStorage.getItem("14hour"));
+  // $("#text15").val(localStorage.getItem("15hour"));
+  // $("#text16").val(localStorage.getItem("16hour"));
+  // $("#text17").val(localStorage.getItem("17hour"));
 
   timeofDay(); //reruns the time day function
 });
